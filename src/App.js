@@ -22,11 +22,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
          <Navbar></Navbar>
-         <Grid container padding={10}>
-           <Grid xs={12}>
+         <Grid container padding={5} spacing={5} >
+           <Grid item xs={12}>
               <AyaCard></AyaCard>
            </Grid>
-           <Grid xs={12}>
+           <Grid item xs={5} />
+           <Grid item xs={4}>
               <div>┈••✦☪︎✦••┈┈••✦☪︎✦••┈</div>
            </Grid>
          </Grid>
