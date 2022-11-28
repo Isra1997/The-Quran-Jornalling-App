@@ -1,5 +1,5 @@
 
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, IconButton } from '@mui/material';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -9,6 +9,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import AyaAudioPlay from '../AyaAudioPlay/AyaAudioPlay';
 import AyaPicker from '../AyaPicker/AyaPicker';
+import CasinoTwoToneIcon from '@mui/icons-material/CasinoTwoTone';
 
 
 
@@ -27,19 +28,25 @@ export default function AyaCard(){
       ()=>{
       async function fetchData(){
         const numberOfRandomSurah = randomNumber(1,114);
-        await axios.get(process.env.REACT_APP_API_SURAH_ENDPOINT+numberOfRandomSurah)
-        .then(async(surah)=>{
-            const numberOfRandomAya = randomNumber(1,surah.data.data.numberOfAyahs);
-            const arrayOfPromises = [axios.get(process.env.REACT_APP_API_AYA_ENDPOINT+numberOfRandomSurah+":"+numberOfRandomAya+"/editions/ar.asad"),
-            axios.get(process.env.REACT_APP_API_AYA_ENDPOINT+numberOfRandomSurah+":"+numberOfRandomAya+"/editions/en.asad")]
-            const result = await Promise.all(arrayOfPromises);
-            setAya(result[0].data.data[0]);
-            setEngTrans(result[1].data.data[0]);
-            console.log(result);
-        });
+        try {
+          const surah = await axios.get(process.env.REACT_APP_API_SURAH_ENDPOINT+numberOfRandomSurah);
+          const numberOfRandomAya = randomNumber(1,surah.data.data.numberOfAyahs);
+          const arrayOfPromises = [axios.get(process.env.REACT_APP_API_AYA_ENDPOINT+numberOfRandomSurah+":"+numberOfRandomAya+"/editions/ar.asad"),
+          axios.get(process.env.REACT_APP_API_AYA_ENDPOINT+numberOfRandomSurah+":"+numberOfRandomAya+"/editions/en.asad")]
+          const result = await Promise.all(arrayOfPromises);
+          setAya(result[0].data.data[0]);
+          setEngTrans(result[1].data.data[0]);
+        } catch (error) {
+          //TODO: add a logger file in order to locate issues
+          console.log(error);
+        }
     }
     fetchData();}
     ,[]);
+
+    const handleRandomAya = () =>{
+      console.log("Selecting random aya..");
+    }
 
     return (
         <Box sx={{ minWidth: 1000 }}  style={{
@@ -64,8 +71,11 @@ export default function AyaCard(){
                 </Typography>
                 </CardContent>
                 <CardActions>
-                   <AyaPicker aya={aya} setAya={setAya}></AyaPicker>
+                   <AyaPicker surahNumber={aya.surah.number} ayaNumber={aya.numberInSurah} setAya={setAya}></AyaPicker>
                    <AyaAudioPlay surahNumber={aya.surah.number} ayaNumber={aya.numberInSurah}></AyaAudioPlay>
+                   <IconButton onClick={handleRandomAya} >
+                     <CasinoTwoToneIcon></CasinoTwoToneIcon>
+                   </IconButton>
                 </CardActions>
             </>
           </Card> : <CircularProgress></CircularProgress> }
