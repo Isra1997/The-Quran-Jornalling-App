@@ -14,7 +14,6 @@ export default function ElevateAppBar(props) {
           <Toolbar>
             <Typography variant="h6" component="div" marginLeft={10}>
              The Quran Journaling App ✨
-
             </Typography>
           </Toolbar>
         </AppBar>

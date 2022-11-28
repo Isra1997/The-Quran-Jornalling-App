@@ -1,9 +1,9 @@
 
-import {  createTheme, Grid,  ThemeProvider } from '@mui/material';
-
+import { Grid } from '@mui/material';
 import './App.css';
 import AyaCard from './AyaCard/AyaCard';
 import Navbar from './Navbar/Navbar';
+import { createTheme , ThemeProvider} from '@mui/material/styles'; 
 
 function App() {
   const theme = createTheme({
@@ -14,7 +14,9 @@ function App() {
       primary:{
         main:'#CEBFB3'
       },
-      text:'#535058'
+      secondary:{
+        main:'#535058'
+      }
     }
   })
 

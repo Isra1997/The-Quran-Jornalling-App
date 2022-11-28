@@ -1,4 +1,5 @@
 
+import { CircularProgress } from '@mui/material';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -6,6 +7,8 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import AyaAudioPlay from '../AyaAudioPlay/AyaAudioPlay';
+import AyaPicker from '../AyaPicker/AyaPicker';
 
 
 
@@ -42,39 +45,30 @@ export default function AyaCard(){
         <Box sx={{ minWidth: 1000 }}  style={{
             display: 'flex', 
             alignItems: 'center', 
+            alignContent: 'stretch',
             justifyContent:'center'
         }}>
+          {
+                   aya !== undefined ? 
           <Card variant="outlined">
           <>
                 <CardContent>
-                
-                <Typography alignSelf="center" variant="h5" gutterBottom>
-                    Aya of the Day
-                </Typography>
                 <Typography variant="h4" component="div" gutterBottom>
-                {
-                   aya === undefined ? '':
-                   aya.text
-                }
+                  { aya.text}
                 </Typography>
                 <Typography sx={{ mb: 1.5 }} >
-                {
-                  aya === undefined ? '': 
-                  aya.surah.englishName+ " "+aya.surah.number+":"+aya.numberInSurah
-                }
+                {aya.surah.englishName+ " "+aya.surah.number+":"+aya.numberInSurah}
                 </Typography>
                 <Typography variant="body1">
-                    {engTrans === undefined ? '':
-                     engTrans.text
-                    }
-                    
+                    {engTrans.text}
                 </Typography>
                 </CardContent>
                 <CardActions>
-                {/* <Button size="small">Learn More</Button> */}
+                   <AyaPicker aya={aya} setAya={setAya}></AyaPicker>
+                   <AyaAudioPlay surahNumber={aya.surah.number} ayaNumber={aya.numberInSurah}></AyaAudioPlay>
                 </CardActions>
             </>
-          </Card>
+          </Card> : <CircularProgress></CircularProgress> }
         </Box>
       );
 }
