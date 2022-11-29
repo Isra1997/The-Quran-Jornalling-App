@@ -4,6 +4,7 @@ import axios from 'axios';
 import IconButton from '@mui/material/IconButton';
 
 
+
 export default function AyaAudioPlay({surahNumber,ayaNumber}){
 
     const playAyaAudio = async() =>{
@@ -16,7 +17,7 @@ export default function AyaAudioPlay({surahNumber,ayaNumber}){
   }
     return(  
     <IconButton onClick={playAyaAudio}>
-        <VolumeUpTwoToneIcon></VolumeUpTwoToneIcon>
+        <VolumeUpTwoToneIcon/>
    </IconButton>)
 
 }
