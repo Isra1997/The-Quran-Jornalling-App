@@ -28,7 +28,7 @@ function App() {
            <Grid item xs={12}>
               <AyaCard></AyaCard>
            </Grid>
-           <Grid item xs={5} />
+           <Grid item xs={5.3} />
            <Grid item xs={4}>
               <div>┈••✦☪︎✦••┈┈••✦☪︎✦••┈</div>
            </Grid>

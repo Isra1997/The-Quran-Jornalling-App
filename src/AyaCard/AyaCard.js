@@ -26,16 +26,15 @@ export default function AyaCard(){
     const [engTrans,setEngTrans] = useState();
 
     useEffect(
-      ()=>{fetchData();}
+      ()=>{fetchAya();}
     ,[]);
 
   const handleRandomAya = () =>{
-      console.log("Selecting random aya..");
-      fetchData();
+      fetchAya();
   }
 
 
-  async function fetchData(surahNumber, ayaNumber){
+  async function fetchAya(surahNumber, ayaNumber){
     let surah = undefined;
     let aya = undefined;
     if(ayaNumber === undefined || surahNumber === undefined){
@@ -81,7 +80,7 @@ export default function AyaCard(){
                 </Typography>
                 </CardContent>
                 <CardActions>
-                   <AyaPicker surahNumber={aya.surah.number} ayaNumber={aya.numberInSurah} setAya={setAya}></AyaPicker>
+                   <AyaPicker surahNumber={aya.surah.number} ayaNumber={aya.numberInSurah} setAya={fetchAya}></AyaPicker>
                    <AyaAudioPlay surahNumber={aya.surah.number} ayaNumber={aya.numberInSurah}></AyaAudioPlay>
                    <IconButton onClick={handleRandomAya} >
                      <CasinoTwoToneIcon/>
