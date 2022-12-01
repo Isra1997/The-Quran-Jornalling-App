@@ -4,6 +4,7 @@ import './App.css';
 import AyaCard from './AyaCard/AyaCard';
 import Navbar from './Navbar/Navbar';
 import { createTheme , ThemeProvider} from '@mui/material/styles'; 
+import Timer from './Timer/Timer';
 
 function App() {
   const theme = createTheme({
@@ -32,6 +33,11 @@ function App() {
            <Grid item xs={4}>
               <div>┈••✦☪︎✦••┈┈••✦☪︎✦••┈</div>
            </Grid>
+           <Grid item xs={3}/>
+           <Grid item xs={6}>
+              <Timer></Timer>
+           </Grid>
+           <Grid item xs={3}/>
          </Grid>
     </ThemeProvider>
   
