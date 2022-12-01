@@ -5,7 +5,7 @@ import PlayCircleTwoToneIcon from '@mui/icons-material/PlayCircleTwoTone';
 import RestartAltTwoToneIcon from '@mui/icons-material/RestartAltTwoTone';
 
 import { useState } from "react";
-import CircularProgressTimer from "../CircularProgressTimer/CircularProgressTimer";
+import CircularProgressTimer from "./CircularProgressTimer/CircularProgressTimer";
 
 export default function Timer(){
     const [minutes,setMinutes] = useState(4);

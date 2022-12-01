@@ -7,8 +7,8 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import AyaAudioPlay from '../AyaAudioPlay/AyaAudioPlay';
-import AyaPicker from '../AyaPicker/AyaPicker';
+import AyaAudioPlay from './AyaAudioPlay/AyaAudioPlay';
+import AyaPicker from './AyaPicker/AyaPicker';
 import CasinoTwoToneIcon from '@mui/icons-material/CasinoTwoTone';
 
 
