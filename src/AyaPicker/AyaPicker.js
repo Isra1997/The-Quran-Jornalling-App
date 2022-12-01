@@ -63,8 +63,6 @@ export default function AyaPicker({surahNumber, ayaNumber, setAya}){
     return(
         
         <>
-        {console.log(ayaNumber)}
-        {console.log(surahNumber)}
          <IconButton  onClick={handleClickOpen}>
               <AddCircleTwoToneIcon ></AddCircleTwoToneIcon>
         </IconButton>
