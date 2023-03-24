@@ -69,14 +69,14 @@ export default function AyaCard(){
           <Card variant="outlined">
           <>
                 <CardContent>
-                <Typography variant="h4" component="div" gutterBottom>
-                  { aya.text}
+                <Typography variant="h4" style={{ fontWeight: "bold"}} component="div" gutterBottom>
+                  ({"  "+aya.text+"  "})
                 </Typography>
-                <Typography sx={{ mb: 1.5 }} >
-                {aya.surah.englishName+ " "+aya.surah.number+":"+aya.numberInSurah}
+                <Typography variant="h5" sx={{ mb: 1.5 }} >
+                  ( {"  "+aya.surah.englishName+" "+aya.surah.number+" : "} <span style={{ fontWeight: "bold" }}>{+aya.numberInSurah+"  "}</span>)
                 </Typography>
                 <Typography variant="body1">
-                    {engTrans.text}
+                  {engTrans.text}
                 </Typography>
                 </CardContent>
                 <CardActions>

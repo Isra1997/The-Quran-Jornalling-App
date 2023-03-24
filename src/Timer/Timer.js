@@ -25,20 +25,20 @@ export default function Timer(){
             <Grid  item xs={8}>
                <CircularProgressTimer minutes={minutes} secounds={secounds} timeSpend={100}></CircularProgressTimer>
             </Grid>
-            <Grid  item xs={1.5}/>
-            <Grid  item xs={3}>
+            <Grid  item xs={2.3}/>
+            <Grid  item xs={2.5}>
                 <Button variant="contained" color="primary">
-                    <PlayCircleTwoToneIcon style={{ padding:5}}/> Start Timer
+                    <PlayCircleTwoToneIcon style={{ padding:5}}/>Start
                 </Button>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={2.5}>
                 <Button variant="outlined" color="secondary">
-                    <PauseCircleFilledTwoToneIcon style={{ padding:5}}/> Stop Timer
+                    <PauseCircleFilledTwoToneIcon style={{ padding:5}}/>Stop
                 </Button>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={2.5}>
                 <Button variant="outlined" color="secondary">
-                    <RestartAltTwoToneIcon style={{ padding:5}}/> Reset Timer
+                    <RestartAltTwoToneIcon style={{ padding:5}}/>Reset
                 </Button>
             </Grid>
           </Grid>
